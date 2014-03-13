@@ -1,0 +1,29 @@
+<h1>Listing subject_tutor_members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subjecttutorid</th>
+      <th>Userid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subject_tutor_members.each do |subject_tutor_member| %>
+      <tr>
+        <td><%= subject_tutor_member.subjecttutorID %></td>
+        <td><%= subject_tutor_member.userID %></td>
+        <td><%= link_to 'Show', subject_tutor_member %></td>
+        <td><%= link_to 'Edit', edit_subject_tutor_member_path(subject_tutor_member) %></td>
+        <td><%= link_to 'Destroy', subject_tutor_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subject tutor member', new_subject_tutor_member_path %>
