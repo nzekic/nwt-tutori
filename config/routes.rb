@@ -1,4 +1,9 @@
 OglasnikZaTutore::Application.routes.draw do
+
+  # Assets redirect
+  get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  
   resources :subject_tutor_members
 
   resources :subject_tutors
@@ -8,6 +13,9 @@ OglasnikZaTutore::Application.routes.draw do
   resources :user_roles
 
   resources :users
+
+
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
