@@ -14,3 +14,15 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+.vagrant/machines/default/virtualbox/action_provision
+
+Gemfile.lock
+
+.vagrant/machines/default/virtualbox/action_set_name
+
+.vagrant/machines/default/virtualbox/id
+
+Vagrantfile
+
+Gemfile.lock
