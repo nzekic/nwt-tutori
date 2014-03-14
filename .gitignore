@@ -26,3 +26,5 @@ Gemfile.lock
 Vagrantfile
 
 Gemfile.lock
+
+*.lock
