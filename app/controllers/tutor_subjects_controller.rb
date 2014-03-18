@@ -63,7 +63,7 @@ class TutorSubjectsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_subject_tutor
+    def set_tutor_subject
       @tutor_subject = TutorSubject.find(params[:id])
     end
 

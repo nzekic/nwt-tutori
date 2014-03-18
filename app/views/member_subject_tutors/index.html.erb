@@ -14,8 +14,8 @@
   <tbody>
     <% @member_subject_tutors.each do |member_subject_tutor| %>
       <tr>
-        <td><%= member_subject_tutor.subjecttutorID %></td>
-        <td><%= member_subject_tutor.userID %></td>
+        <td><%= member_subject_tutor.tutor_subject_id %></td>
+        <td><%= member_subject_tutor.member_id %></td>
         <td><%= link_to 'Show', member_subject_tutor %></td>
         <td><%= link_to 'Edit', edit_member_subject_tutor_path(member_subject_tutor) %></td>
         <td><%= link_to 'Destroy', member_subject_tutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>

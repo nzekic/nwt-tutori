@@ -15,8 +15,8 @@
   <tbody>
     <% @tutor_subjects.each do |tutor_subject| %>
       <tr>
-        <td><%= tutor_subject.subjectID %></td>
-        <td><%= tutor_subject.userID %></td>
+        <td><%= tutor_subject.subject_id %></td>
+        <td><%= tutor_subject.tutor_id %></td>
         <td><%= tutor_subject.rateperhour %></td>
         <td><%= link_to 'Show', tutor_subject %></td>
         <td><%= link_to 'Edit', edit_tutor_subject_path(tutor_subject) %></td>
