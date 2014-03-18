@@ -11,19 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313163754) do
+ActiveRecord::Schema.define(version: 20140318120435) do
 
-  create_table "subject_tutor_members", force: true do |t|
-    t.integer  "subjecttutorID"
-    t.integer  "userID"
+  create_table "member_subject_tutors", force: true do |t|
+    t.integer  "tutor_subject_id"
+    t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "subject_tutors", force: true do |t|
-    t.integer  "subjectID"
-    t.integer  "userID"
-    t.float    "rateperhour"
+  create_table "members", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "familyName"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "privileges", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "research_areas", force: true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,10 +48,21 @@ ActiveRecord::Schema.define(version: 20140313163754) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "research_area_id"
   end
 
-  create_table "user_roles", force: true do |t|
-    t.string   "role"
+  create_table "tutor_subjects", force: true do |t|
+    t.integer  "subject_id"
+    t.integer  "tutor_id"
+    t.float    "rateperhour"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tutors", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "familyName"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140313163754) do
     t.string   "name"
     t.string   "familyName"
     t.string   "email"
-    t.integer  "userroleID"
+    t.integer  "privilege_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_one :privilege
+
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: { maximum: 50 }
 	validates :familyName, presence: true

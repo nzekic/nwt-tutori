@@ -1,5 +1,11 @@
 OglasnikZaTutore::Application.routes.draw do
 
+  resources :privileges
+
+  resources :members
+
+  resources :tutors
+
   # Assets redirect
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
