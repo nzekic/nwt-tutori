@@ -22,7 +22,6 @@ class AccountsController < ApplicationController
   end
 
   def logout
-    @user = nil
   end
 
   def register
