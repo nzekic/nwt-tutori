@@ -1,5 +1,12 @@
 OglasnikZaTutore::Application.routes.draw do
 
+  match "/accounts/login" => "accounts#login", via: [:post]
+  get "accounts/index"
+  post "accounts/new"
+  post "accounts/login"
+  get "accounts/logout"
+  post "accounts/register"
+  post "accounts/reset_password"
   resources :privileges
 
   resources :members
@@ -9,14 +16,16 @@ OglasnikZaTutore::Application.routes.draw do
   # Assets redirect
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+
   
+   
   resources :member_subject_tutors
 
   resources :tutor_subjects
 
   resources :subjects
 
-  resources :users
+  resources :users, :collection=>{:login=>:post} 
 
 
   root 'home#index'

@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  def login
+     # @user = User.find(params[:username])
+    render layout: false
+    render inline: "<p>aaaa</p>"
+  end
   def index
     @users = User.all
   end
@@ -69,11 +74,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :name, :familyName, :email, :privilege_i)
-    end
-
-    def login
-      @user = User.find(params[:username])
-      user.password == params[:password]
+      params.require(:user).permit(:username, :password, :name, :familyName, :email, :privilege_id)
     end
 end
+
