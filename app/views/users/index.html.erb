@@ -3,12 +3,14 @@
 <table>
   <thead>
     <tr>
+      <th>Privilege</th>
       <th>Username</th>
       <th>Password</th>
-      <th>Name</th>
-      <th>Familyname</th>
       <th>Email</th>
-      <th>privilege_id</th>
+      <th>Name</th>
+      <th>Family name</th>
+      <th>Account activated</th>
+      <th>Activation code</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,12 +20,14 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.privilege_id %></td>
         <td><%= user.username %></td>
         <td><%= user.password %></td>
-        <td><%= user.name %></td>
-        <td><%= user.familyName %></td>
         <td><%= user.email %></td>
-        <td><%= user.privilege_id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.family_name %></td>
+        <td><%= user.account_activated %></td>
+        <td><%= user.activation_code %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

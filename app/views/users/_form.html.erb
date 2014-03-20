@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :privilege_id %><br>
+    <%= f.number_field :privilege_id %>
+  </div>
+  <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
@@ -20,20 +24,24 @@
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :familyName %><br>
-    <%= f.text_field :familyName %>
-  </div>
-  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :privilege_id %><br>
-    <%= f.number_field :privilege_id %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :family_name %><br>
+    <%= f.text_field :family_name %>
+  </div>
+  <div class="field">
+    <%= f.label :account_activated %><br>
+    <%= f.check_box :account_activated %>
+  </div>
+  <div class="field">
+    <%= f.label :activation_code %><br>
+    <%= f.text_field :activation_code %>
   </div>
   <div class="actions">
     <%= f.submit %>

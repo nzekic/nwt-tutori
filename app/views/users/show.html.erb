@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Privilege:</strong>
+  <%= @user.privilege_id %>
+</p>
+
+<p>
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
@@ -11,23 +16,28 @@
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Familyname:</strong>
-  <%= @user.familyName %>
-</p>
-
-<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>privilege_id:</strong>
-  <%= @user.privilege_id %>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Family name:</strong>
+  <%= @user.family_name %>
+</p>
+
+<p>
+  <strong>Account activated:</strong>
+  <%= @user.account_activated %>
+</p>
+
+<p>
+  <strong>Activation code:</strong>
+  <%= @user.activation_code %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

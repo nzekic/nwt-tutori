@@ -1,0 +1,31 @@
+<h1>Listing tutoring_times</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ad</th>
+      <th>Time</th>
+      <th>Reserved</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutoring_times.each do |tutoring_time| %>
+      <tr>
+        <td><%= tutoring_time.ad_id %></td>
+        <td><%= tutoring_time.time %></td>
+        <td><%= tutoring_time.reserved %></td>
+        <td><%= link_to 'Show', tutoring_time %></td>
+        <td><%= link_to 'Edit', edit_tutoring_time_path(tutoring_time) %></td>
+        <td><%= link_to 'Destroy', tutoring_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutoring time', new_tutoring_time_path %>

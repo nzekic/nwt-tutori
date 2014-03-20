@@ -3,11 +3,6 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
-  def login
-     # @user = User.find(params[:username])
-    render layout: false
-    render inline: "<p>aaaa</p>"
-  end
   def index
     @users = User.all
   end
@@ -25,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+
   # POST /users
   # POST /users.json
   def create
@@ -40,7 +36,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -74,7 +69,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :name, :familyName, :email, :privilege_id)
+      params.require(:user).permit(:privilege_id, :username, :password, :email, :name, :family_name, :account_activated, :activation_code)
     end
 end
-

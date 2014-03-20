@@ -11,19 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318120435) do
+ActiveRecord::Schema.define(version: 20140320095108) do
 
-  create_table "member_subject_tutors", force: true do |t|
-    t.integer  "tutor_subject_id"
-    t.integer  "member_id"
+  create_table "ads", force: true do |t|
+    t.integer  "tutor_id"
+    t.integer  "subject_id"
+    t.string   "title"
+    t.text     "description"
+    t.float    "hourly_rate"
+    t.boolean  "valid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "members", force: true do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.string   "familyName"
+  create_table "appointments", force: true do |t|
+    t.integer  "tutoring_time_id"
+    t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,44 +39,37 @@ ActiveRecord::Schema.define(version: 20140318120435) do
   end
 
   create_table "research_areas", force: true do |t|
-    t.string   "title"
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "subjects", force: true do |t|
+    t.integer  "research_area_id"
     t.string   "name"
-    t.string   "faculty"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "research_area_id"
   end
 
-  create_table "tutor_subjects", force: true do |t|
-    t.integer  "subject_id"
-    t.integer  "tutor_id"
-    t.float    "rateperhour"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tutors", force: true do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.string   "familyName"
+  create_table "tutoring_times", force: true do |t|
+    t.integer  "ad_id"
+    t.datetime "time"
+    t.boolean  "reserved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
+    t.integer  "privilege_id"
     t.string   "username"
     t.string   "password"
-    t.string   "name"
-    t.string   "familyName"
     t.string   "email"
-    t.integer  "privilege_id"
+    t.string   "name"
+    t.string   "family_name"
+    t.boolean  "account_activated"
+    t.string   "activation_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

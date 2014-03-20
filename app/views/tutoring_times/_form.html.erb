@@ -1,0 +1,29 @@
+<%= form_for(@tutoring_time) do |f| %>
+  <% if @tutoring_time.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tutoring_time.errors.count, "error") %> prohibited this tutoring_time from being saved:</h2>
+
+      <ul>
+      <% @tutoring_time.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ad_id %><br>
+    <%= f.number_field :ad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.datetime_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :reserved %><br>
+    <%= f.check_box :reserved %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

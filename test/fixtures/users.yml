@@ -1,17 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  privilege_id: 1
   username: MyString
   password: MyString
-  name: MyString
-  familyName: MyString
   email: MyString
-  userroleID: 1
+  name: MyString
+  family_name: MyString
+  account_activated: false
+  activation_code: MyString
 
 two:
+  privilege_id: 1
   username: MyString
   password: MyString
-  name: MyString
-  familyName: MyString
   email: MyString
-  userroleID: 1
+  name: MyString
+  family_name: MyString
+  account_activated: false
+  activation_code: MyString

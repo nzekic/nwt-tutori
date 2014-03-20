@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutoring time:</strong>
+  <%= @appointment.tutoring_time_id %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @appointment.member_id %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

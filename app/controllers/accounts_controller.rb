@@ -2,12 +2,6 @@ class AccountsController < ApplicationController
   respond_to :json
   #Da se izbjegne invalid authenticity token
   protect_from_forgery :only => [:login]
-  def index
-  end
-
-  def new
-  end
-
   def login
     @user = User.find_by(username: params['username'])
     if !@user
@@ -27,20 +21,15 @@ class AccountsController < ApplicationController
   def register
     @user = User.find_by(username: params['username'])
     if !@user
-      if(params['role']=='tutor')
-        @user = User.create(:username => params['username'], :password => params['password'], :name => params['name'], :familyName => params['familyName'], :email => params['email'], :privilege_id => 1)
-        @tutor = Tutor.new(:user_id => @user.id, :name => params['name'], :familyName => params['familyName'])
+        @user = User.create(:username => params['username'], :password => params['password'], :name => params['name'], :family_name => params['family_name'], :email => params['email'], :privilege_id => params['privilege_id'], :account_activated => false, :activation_code => "generisani rendom kod")
+        @user.save
         render :json => 'Uspjesna registracija'
-      elsif(params['role']=='member')
-        @user = User.create(params['username'], params['password'], params['name'], params['familyName'], params['email'], 1)
-        @member = Member.new(:user_id => @user.id, :name => params['name'], :familyName => params['familyName'])
-        render :json => 'Uspjesna registracija'
-      else
-        render  :json => 'Neuspjesna registracija'
-      end
     else
       render :json => 'Vec postoji korisnik s korisnickim imenom'  
     end
+  end
+
+  def activate_account
   end
 
   def reset_password

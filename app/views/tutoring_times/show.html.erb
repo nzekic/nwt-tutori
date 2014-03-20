@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ad:</strong>
+  <%= @tutoring_time.ad_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @tutoring_time.time %>
+</p>
+
+<p>
+  <strong>Reserved:</strong>
+  <%= @tutoring_time.reserved %>
+</p>
+
+<%= link_to 'Edit', edit_tutoring_time_path(@tutoring_time) %> |
+<%= link_to 'Back', tutoring_times_path %>
