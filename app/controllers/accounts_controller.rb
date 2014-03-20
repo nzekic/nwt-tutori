@@ -30,6 +30,19 @@ class AccountsController < ApplicationController
   end
 
   def activate_account
+    @user = User.find_by(id: params['user_id'])
+      if !@user
+        render :json => 'Ne postoji account'
+      else
+        if(@user.account_activated)
+          render :json => 'Vec ste aktivirali account'
+        elsif(@user.activation_code==params['activation_code'])
+          @user.update(:account_activated => true)
+          render :json => 'Uspjesno ste aktivirali account'
+        else
+          render :json => 'Pogresan aktivacijski kod'
+        end
+      end
   end
 
   def reset_password
