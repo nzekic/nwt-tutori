@@ -7,6 +7,10 @@ OglasnikZaTutore::Application.routes.draw do
   get "accounts/activate_account"
   post "accounts/reset_password"
   post "accounts/activate_account"
+  post "accounts/update_my_profile"
+  get "accounts/show_my_profile"
+  get "tutor_ads/show_my_ads"
+  post "tutor_ads/create"
 
   resources :appointments
 

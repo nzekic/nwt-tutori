@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	has_one :privilege
+	belongs_to :privilege
 	has_many :appointments, dependent: :destroy, foreign_key: "member_id"
 	#ako je tutor
 	has_many :ads, dependent: :destroy, foreign_key: "tutor_id"
