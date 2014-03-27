@@ -11,7 +11,7 @@ OglasnikZaTutore::Application.routes.draw do
   get "accounts/show_my_profile"
   get "tutor_ads/show_my_ads"
   post "tutor_ads/create"
-
+  get 'accounts', to: 'accounts#index'
   resources :appointments
 
   resources :tutoring_times

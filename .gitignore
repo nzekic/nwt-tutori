@@ -28,3 +28,5 @@ Vagrantfile
 Gemfile.lock
 
 *.lock
+
+db/schema.rb

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320095108) do
+ActiveRecord::Schema.define(version: 20140320091154) do
 
   create_table "ads", force: true do |t|
     t.integer  "tutor_id"

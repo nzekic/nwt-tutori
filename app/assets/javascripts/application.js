@@ -16,3 +16,5 @@
 //= require bootstrap-dropdown
 //= require jquery
 //= require_tree .
+// Add the following two lines
+//= require angular
