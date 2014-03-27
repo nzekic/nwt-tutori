@@ -26,9 +26,20 @@ OglasnikZaTutore::Application.routes.draw do
 
   resources :privileges
 
+  resources :signups, :only => [:index, :create]
+  get 'signup' => 'signups#index'
+
+  resources :sessions, :only => [:index, :create, :destroy]
+  get 'login' => 'sessions#index'
+  get 'logout' => 'sessions#destroy'
+
+  resources :profiles, :only => [:index]
+  get 'profile' => 'profiles#index'
+
   # Assets redirect
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
 
   root 'home#index'
 

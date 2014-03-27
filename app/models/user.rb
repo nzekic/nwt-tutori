@@ -12,4 +12,14 @@ class User < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
+
+	def self.check_user(username, password)
+  	user = User.where(username: username).take
+  	if user && user.password == Digest::MD5.hexdigest(password)
+  		user
+  	else
+  		nil
+  	end
+    end
+
 end
