@@ -22,12 +22,14 @@ class AccountsController < ApplicationController
       format.json{render :json => 'Uspjesna odjava'}
     end
   end
-
+  def index
+  end
   def register
     respond_to do |format|
       if !@user
         @user = User.new(:username => params['username'], :password => params['password'], :name => params['name'], :family_name => params['family_name'], :email => params['email'], :privilege_id => params['privilege_id'], :account_activated => false, :activation_code => "generisani rendom kod")
         if @user.save
+          UserMailer.activate_account_mail(@user).deliver
           format.json{ render json: "Uspjesna registracija!" }
         else
           format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -72,6 +74,7 @@ class AccountsController < ApplicationController
   def show_my_ads
     if @user.privilege.name != "Tutor"
       render :json => 'Tutorska funkcionalnost'
+    end
   end
 
   def create_ad
@@ -100,6 +103,7 @@ class AccountsController < ApplicationController
     else
       if @user.update(:password => params[:password])
         render :json => 'Uspjesna izmjena passworda'
+      end
     end
   end
   #U slučaju da je zaboravljen password
