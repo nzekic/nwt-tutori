@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +16,6 @@
   <%= @subject.description %>
 </p>
 
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+<%= link_to 'Edit', edit_subject_path(@subject), :class =>"btn btn-primary" %> |
+<%= link_to 'Back', subjects_path, :class => "btn btn-primary" %>
+</div>

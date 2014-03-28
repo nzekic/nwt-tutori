@@ -29,7 +29,7 @@ class AccountsController < ApplicationController
       if !@user
         @user = User.new(:username => params['username'], :password => params['password'], :name => params['name'], :family_name => params['family_name'], :email => params['email'], :privilege_id => params['privilege_id'], :account_activated => false, :activation_code => "generisani rendom kod")
         if @user.save
-          UserMailer.activate_account_mail(@user).deliver
+          UserMailer.activate_account_email(@user).deliver
           format.json{ render json: "Uspjesna registracija!" }
         else
           format.json { render json: @user.errors, status: :unprocessable_entity }
