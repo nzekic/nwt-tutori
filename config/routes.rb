@@ -4,14 +4,16 @@ OglasnikZaTutore::Application.routes.draw do
   post "accounts/login"
   get "accounts/logout"
   post "accounts/register"
-  get "accounts/activate_account"
+  get "accounts/register", to: 'accounts#index'
+
+  get "accounts/activate"
   post "accounts/reset_password"
   post "accounts/activate_account"
   post "accounts/update_my_profile"
   get "accounts/show_my_profile"
   get "tutor_ads/show_my_ads"
   post "tutor_ads/create"
-  get 'accounts', to: 'accounts#index'
+
   resources :appointments
 
   resources :tutoring_times
@@ -28,6 +30,9 @@ OglasnikZaTutore::Application.routes.draw do
 
   resources :signups, :only => [:index, :create]
   get 'signup' => 'signups#index'
+
+  resources :accounts, :only => [:index, :register]
+  get 'accounts' => 'accounts#index'
 
   resources :sessions, :only => [:index, :create, :destroy]
   get 'login' => 'sessions#index'

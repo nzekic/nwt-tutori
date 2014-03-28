@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   #Da se izbjegne invalid authenticity token
   protect_from_forgery :only => [:login, :register]
-  before_action :set_user, :only => [:login, :register, :activate_account, :show_my_ads, :show_my_profile, :update_my_profile]
+  before_action :set_user, :only => [:login, :register, :show_my_ads, :show_my_profile, :update_my_profile]
 
   def login
     respond_to do |format|
@@ -27,7 +27,9 @@ class AccountsController < ApplicationController
   def register
     respond_to do |format|
       if !@user
-        @user = User.new(:username => params['username'], :password => params['password'], :name => params['name'], :family_name => params['family_name'], :email => params['email'], :privilege_id => params['privilege_id'], :account_activated => false, :activation_code => "generisani rendom kod")
+        require 'securerandom'
+        s = SecureRandom.urlsafe_base64(20) 
+        @user = User.new(:username => params['username'], :password => params['password'], :name => params['name'], :family_name => params['family_name'], :email => params['email'], :privilege_id => params['privilege_id'], :account_activated => false, :activation_code => s)
         if @user.save
           UserMailer.activate_account_email(@user).deliver
           format.json{ render json: "Uspjesna registracija!" }
@@ -40,7 +42,8 @@ class AccountsController < ApplicationController
     end
   end
 
-  def activate_account
+  def activate
+    @user = User.find_by(id: params['id'])
       if !@user
         render :json => 'Ne postoji account'
       else

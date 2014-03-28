@@ -8,16 +8,15 @@ class SignupsController < ApplicationController
 	end
 
 	def create
-		@user = User.create({:username => params[:username],
-			:password => Digest::MD5.hexdigest(params[:password]),
-			:name => params[:first_name],
-			:family_name => params[:last_name],
-			:privilege_id => 3,
-			:email => params[:email],
-			});
-
-		redirect_to "/"
-		
-   end
+      		if !@user
+        		require 'securerandom'
+        		s = SecureRandom.urlsafe_base64(20) 
+        		@user = User.new(:username => params['username'], :password => params['password'], :name => params['name'], :family_name => params['family_name'], :email => params['email'], :privilege_id => params['privilege_id'], :account_activated => false, :activation_code => s)
+        		if @user.save
+          			UserMailer.activate_account_email(@user).deliver
+      			end
+    		end
+    		redirect_to "/"
+ 	end
 
 end
