@@ -36,4 +36,8 @@ OglasnikZaTutore::Application.configure do
   password:             '',
   authentication:       'plain',
   enable_starttls_auto: true  }
+
+  #recaptcha
+  RECAPTCHA_PUBLIC_KEY= '6LefEvESAAAAAOSuAARmkUEAaRg0pRS_hxy1xdOy'
+  RECAPTCHA_PRIVATE_KEY= '6LefEvESAAAAAKuv5W1qV8y_XB1tqHfuC743ENuu'
 end

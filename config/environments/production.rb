@@ -77,4 +77,8 @@ OglasnikZaTutore::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+    #recaptcha
+  RECAPTCHA_PUBLIC_KEY= '6LefEvESAAAAAOSuAARmkUEAaRg0pRS_hxy1xdOy'
+  RECAPTCHA_PRIVATE_KEY= '6LefEvESAAAAAKuv5W1qV8y_XB1tqHfuC743ENuu'
 end

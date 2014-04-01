@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			redirect_to '/'
 		else
 			flash[:status] = false
-			flash[:message] = "Pogrešno korisničko ime ili lozinka"
+			flash[:message] = "Pogresno korisnicko ime ili lozinka"
 			redirect_to sessions_path
 		end
 	end
