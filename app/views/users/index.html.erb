@@ -28,14 +28,14 @@
         <td><%= user.family_name %></td>
         <td><%= user.account_activated %></td>
         <td><%= user.activation_code %></td>
-
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<td><%= link_to 'Show', user %></td>
-<td><%= link_to 'Edit', edit_user_path(user) %></td>
-<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 <br>
 
 <%= link_to 'New User', new_user_path %>

@@ -1,6 +1,6 @@
 OglasnikZaTutore::Application.routes.draw do
 
-
+scope "/:locale" do
   post "accounts/login"
   get "accounts/logout"
   post "accounts/register"
@@ -40,14 +40,16 @@ OglasnikZaTutore::Application.routes.draw do
 
   resources :profiles, :only => [:index]
   get 'profile' => 'profiles#index'
-
+    # Assets redirect
+  get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  root 'home#index'
+end
   # Assets redirect
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-
-  root 'home#index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
