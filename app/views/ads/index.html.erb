@@ -1,6 +1,8 @@
-<h1>Listing ads</h1>
+<div class="container">
+<h1>Ponude</h1>
+<div class="table-responsive">
 
-<table>
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Tutor</th>
@@ -31,7 +33,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Ad', new_ad_path %>
+<%= link_to 'Dodaj ponudu', new_ad_path, :class => 'btn btn-primary btn-lg btn-block', :method=>'get'%>
+</div>

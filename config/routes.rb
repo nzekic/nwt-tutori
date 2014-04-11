@@ -28,6 +28,8 @@ OglasnikZaTutore::Application.routes.draw do
 
   resources :privileges
 
+  resources :profiles
+
   resources :signups, :only => [:index, :create]
   get 'signup' => 'signups#index'
 

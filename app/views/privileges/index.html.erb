@@ -1,6 +1,9 @@
-<h1>Listing privileges</h1>
+<div class="container">
+<h1>Privilegije</h1>
+<div class="table-responsive">
 
-<table>
+<table class="table table-bordered table-hover">
+
   <thead>
     <tr>
       <th>Name</th>
@@ -23,7 +26,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Privilege', new_privilege_path %>
+<%= link_to 'Dodaj privilegiju', new_privilege_path, :class => 'btn btn-primary btn-lg btn-block', :method=>'get'%>
+</div>

@@ -1,6 +1,8 @@
-<h1>Listing appointments</h1>
+<div class="container">
+<h1>Zakazane instrukcije</h1>
+<div class="table-responsive">
 
-<table>
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Tutoring time</th>
@@ -19,11 +21,13 @@
         <td><%= link_to 'Show', appointment %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Appointment', new_appointment_path %>
+<%= link_to 'Zakazi instrukcije', new_appointment_path, :class => 'btn btn-primary btn-lg btn-block', :method=>'get'%>
+</div>
