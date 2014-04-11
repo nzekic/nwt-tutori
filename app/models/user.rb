@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	#ako je tutor
 	has_many :ads, dependent: :destroy, foreign_key: "tutor_id"
 	has_many :tutoring_times, through: :ads
+	has_many :subjects, through: :ads
 	has_many :appointment_times, through: :appointments, class_name: "TutoringTime", dependent: :destroy
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: { maximum: 50 }
@@ -21,5 +22,8 @@ class User < ActiveRecord::Base
   		nil
   	end
     end
+    def users_created_at()
+    count(:group => "year(created_at),month(created_at)")
+	end
 
 end

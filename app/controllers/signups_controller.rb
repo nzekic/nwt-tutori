@@ -3,7 +3,7 @@ class SignupsController < ApplicationController
 
 	def index
 		if session[:user_id]
-			redirect_to '/'
+			redirect_to '/'+params[:locale]
 		end
 	end
 
@@ -15,9 +15,9 @@ class SignupsController < ApplicationController
         		@user.valid? #ensures we see all errors on the model in the view if the captcha fails
               if verify_recaptcha(:user => @user, :message => "Please enter the correct captcha!") && @user.save 
           			UserMailer.activate_account_email(@user).deliver
-                redirect_to "/"
+                redirect_to '/'+params[:locale]
               else 
-                redirect_to "/signups"
+                redirect_to       redirect_to '/'+params[:locale] + '/signups'
               end
     		  end
  	end

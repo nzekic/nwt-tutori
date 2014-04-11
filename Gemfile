@@ -56,3 +56,4 @@ end
 gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'chartkick'
+gem 'groupdate'

@@ -1,5 +1,8 @@
 OglasnikZaTutore::Application.routes.draw do
 
+  resources :subjects
+
+  resources :users
 scope "/:locale" do
   post "accounts/login"
   get "accounts/logout"
@@ -13,7 +16,7 @@ scope "/:locale" do
   get "accounts/show_my_profile"
   get "tutor_ads/show_my_ads"
   post "tutor_ads/create"
-  get "stats", to: 'stats#index'
+  get "stats/registered_users"
 
   resources :stats, :only => [ :index, :registered_users ]
   resources :appointments
@@ -24,9 +27,7 @@ scope "/:locale" do
 
   resources :research_areas
 
-  resources :subjects
 
-  resources :users
 
   resources :privileges
 
@@ -46,8 +47,9 @@ scope "/:locale" do
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-  root 'home#index'
+  get '/' => 'home#index'
 end
+  root 'home#index'
   # Assets redirect
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
