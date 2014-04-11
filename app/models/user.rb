@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+	has_one :profile, dependent: :destroy, foreign_key:"user_id"
 	belongs_to :privilege
 	has_many :appointments, dependent: :destroy, foreign_key: "member_id"
 	#ako je tutor
@@ -8,6 +9,7 @@ class User < ActiveRecord::Base
 	has_many :subjects, through: :ads
 	has_many :appointment_times, through: :appointments, class_name: "TutoringTime", dependent: :destroy
 	before_save { self.email = email.downcase }
+
 	validates :name, presence: true, length: { maximum: 50 }
 	validates :family_name, presence: true, length: {maximum: 50}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

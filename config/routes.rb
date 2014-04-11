@@ -31,6 +31,8 @@ scope "/:locale" do
 
   resources :privileges
 
+  resources :profiles
+
   resources :signups, :only => [:index, :create]
   get 'signup' => 'signups#index'
 

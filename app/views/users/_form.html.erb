@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+
+    <div class="form-group" >
+  <div class="row">  
+<div class="col-xs-6">
+
   <div class="field">
     <%= f.label :privilege_id %><br>
     <%= f.number_field :privilege_id %>
@@ -43,7 +48,14 @@
     <%= f.label :activation_code %><br>
     <%= f.text_field :activation_code %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+  <br><br>
+ </div>
+  
+
+   <button class="btn btn-info" type="submit">Dodaj</button> 
+ 
+ </div>
+ <% end %>
+

@@ -1,6 +1,8 @@
-<h1>Listing tutoring_times</h1>
+<div class="container">
+<h1>Vrijeme držanja instrukcija/h1>
+<div class="table-responsive">
 
-<table>
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Ad</th>
@@ -21,11 +23,13 @@
         <td><%= link_to 'Show', tutoring_time %></td>
         <td><%= link_to 'Edit', edit_tutoring_time_path(tutoring_time) %></td>
         <td><%= link_to 'Destroy', tutoring_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Tutoring time', new_tutoring_time_path %>
+<%= link_to 'Dodaj vrijeme', new_tutoring_time_path, :class => 'btn btn-primary btn-lg btn-block', :method=>'get'%>
+</div>
