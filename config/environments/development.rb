@@ -32,8 +32,8 @@ OglasnikZaTutore::Application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'oglasnikzatutore.com',
-  user_name:            'mirnam90@gmail.com',
-  password:             'pzV01ezV08yvA990nvV',
+  user_name:            'oglasnikzatutore@gmail.com',
+  password:             'oglasnik1234',
   authentication:       'plain',
   enable_starttls_auto: true  }
 

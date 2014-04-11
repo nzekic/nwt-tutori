@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
 
   def activate_account_email(user)
     @user = user
-    @url  = 'http://127.0.0.1:3000/accounts/activate?id=' + @user.id.to_s + '&activation_code=' + @user.activation_code
+    @url  = 'http://127.0.0.1:3000/en/accounts/activate?id=' + @user.id.to_s + '&activation_code=' + @user.activation_code
     mail(to: @user.email, subject: 'Aktivirajte account')
   end
 end

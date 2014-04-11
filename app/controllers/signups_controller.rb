@@ -17,7 +17,7 @@ class SignupsController < ApplicationController
           			UserMailer.activate_account_email(@user).deliver
                 redirect_to '/'+params[:locale]
               else 
-                redirect_to       redirect_to '/'+params[:locale] + '/signups'
+                redirect_to '/'+params[:locale] + '/signups'
               end
     		  end
  	end
