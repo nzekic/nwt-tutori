@@ -13,7 +13,9 @@ scope "/:locale" do
   get "accounts/show_my_profile"
   get "tutor_ads/show_my_ads"
   post "tutor_ads/create"
+  get "stats", to: 'stats#index'
 
+  resources :stats, :only => [ :index, :registered_users ]
   resources :appointments
 
   resources :tutoring_times

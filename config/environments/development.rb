@@ -33,7 +33,7 @@ OglasnikZaTutore::Application.configure do
   port:                 587,
   domain:               'oglasnikzatutore.com',
   user_name:            'mirnam90@gmail.com',
-  password:             '',
+  password:             'pzV01ezV08yvA990nvV',
   authentication:       'plain',
   enable_starttls_auto: true  }
 
