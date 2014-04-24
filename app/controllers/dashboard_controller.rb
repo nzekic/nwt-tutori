@@ -1,4 +1,4 @@
-class StatsController < ApplicationController
+class DashboardController < ApplicationController
   def index
   end
   def registered_users
