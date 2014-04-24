@@ -6,6 +6,7 @@ class TutorAdsController < ApplicationController
   def show_my_ads
     if @user.privilege.name != "Tutor"
       render :json => 'Tutorska funkcionalnost'
+    end
   end
 
   def create
