@@ -3,7 +3,7 @@ OglasnikZaTutore::Application.routes.draw do
   resources :subjects
 
   resources :users
-scope "/:locale" do
+scope "(:locale)", locale: /en|bs|hr|sr/ do
   post "accounts/login"
   get "accounts/logout"
   post "accounts/register"
