@@ -51,13 +51,6 @@ scope "(:locale)", locale: /en|bs|hr|sr/ do
   get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/' => 'home#index'
 end
-  root 'home#index'
-  # Assets redirect
-  get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-  get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-  get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-  get '/assets/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
