@@ -1,11 +1,7 @@
 class SessionsController < ApplicationController
 	def index
 		if @user
-			if @user.privilege == 'administrator'
-				redirect_to profiles_path
-			else
-				redirect_to '/' + params[:locale] + '/'
-			end
+			redirect_to '/'
 		end
 	end
 
@@ -13,7 +9,11 @@ class SessionsController < ApplicationController
 		@user = User.check_user(params[:username], params[:password])
 		if @user
 			session[:user_id] = @user.id
-			redirect_to '/' + params[:locale] + '/'
+			if @user.privilege.name == 'Administrator'
+				redirect_to dashboard_index_path
+			else
+				redirect_to '/'
+			end
 		else
 			flash[:status] = false
 			flash[:message] = "Pogresno korisnicko ime ili lozinka"

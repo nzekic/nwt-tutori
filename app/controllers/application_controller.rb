@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :check_login, :set_locale
-  def default_url_options(options = {})
-    { :path_prefix => I18n.locale }
-  end
   def check_login
   	if @user || session[:user_id]
   		@user = User.find(session[:user_id]) unless @user

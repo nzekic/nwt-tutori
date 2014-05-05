@@ -58,7 +58,7 @@
 
                   <% if @user || session[:user_id] %>
                    
-                  
+                  <% @user.privilege %>
                         <li><a href="profile"><%= @user.username %></a></li>
                         <li><a href="logout"><%= t "nav.logout" %></a></li>
                      
