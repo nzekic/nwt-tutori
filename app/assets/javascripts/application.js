@@ -11,11 +11,10 @@
 // about supported directives.
 //
 //= require jsapi
+//= require angular
 //= require chartkick
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require jquery
 //= require_tree .
-// Add the following two lines
-//= require angular
