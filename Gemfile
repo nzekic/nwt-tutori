@@ -61,3 +61,4 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'chartkick'
 gem 'groupdate'
+gem 'angularjs-rails'

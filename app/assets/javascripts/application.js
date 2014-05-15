@@ -9,12 +9,15 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 //= require jsapi
-//= require angular
-//= require chartkick
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap
 //= require jquery
+//= require bootstrap
+//= require underscore
+//= require angular
+//= require main
+//= require angular-resource
+//= require angular-route
+//= require angular/controllers/home/HomeCtrl
+//= require chartkick
 //= require_tree .
