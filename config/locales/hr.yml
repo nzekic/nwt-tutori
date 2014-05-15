@@ -249,6 +249,7 @@ hr:
     logout: Odjava
     login: Prijava
     registration: Registracija
+    ads: Oglasi
   footer:
     about: O nama
     services: Usluge

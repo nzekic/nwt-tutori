@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140320091154) do
     t.string   "title"
     t.text     "description"
     t.float    "hourly_rate"
-    t.boolean  "valid"
+    t.boolean  "is_valid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

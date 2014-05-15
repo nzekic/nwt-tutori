@@ -26,7 +26,7 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(ad_params)
 
-    respond_to do |format|
+   respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
         format.json { render action: 'show', status: :created, location: @ad }
@@ -35,6 +35,7 @@ class AdsController < ApplicationController
         format.json { render json: @ad.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /ads/1
@@ -69,6 +70,6 @@ class AdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:tutor_id, :subject_id, :title, :description, :hourly_rate, :valid)
+      params.require(:ad).permit(:tutor_id, :subject_id, :title, :description, :hourly_rate, :is_valid)
     end
 end

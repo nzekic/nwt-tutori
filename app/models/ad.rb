@@ -1,5 +1,5 @@
 class Ad < ActiveRecord::Base
-	has_many :tutoring_times
+	#has_many :tutoring_times, dependent: :destroy, foreign_key: "member_id"
 	belongs_to :user
 	belongs_to :subject
 
