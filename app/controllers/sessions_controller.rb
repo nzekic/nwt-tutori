@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			if @user.privilege.name == 'Administrator'
 				redirect_to dashboard_index_path
 			else
-				redirect_to '/'
+				redirect_to '/#/home'
 			end
 		else
 			flash[:status] = false

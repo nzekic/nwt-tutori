@@ -4,12 +4,14 @@ OglasnikZaTutore::Application.routes.draw do
 
   resources :users
 scope "(:locale)", locale: /en|bs|hr|sr/ do
+
   root 'home#index'
+  #get "home", to: 'home#home'
   post "accounts/login"
   get "accounts/logout"
   post "accounts/register"
   get "accounts/register", to: 'accounts#index'
-
+  #get "home", to: 'home#home'
   get "accounts/activate"
   post "accounts/reset_password"
   post "accounts/activate_account"
@@ -18,7 +20,7 @@ scope "(:locale)", locale: /en|bs|hr|sr/ do
   get "tutor_ads/show_my_ads"
   post "tutor_ads/create"
   get "dashboard/registered_users"
-
+  get "home/ads", to:"ads#all_ads", :defaults => { :format => 'json' }
   resources :dashboard, :only => [ :index, :registered_users ]
   resources :appointments
 

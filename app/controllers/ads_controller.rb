@@ -6,6 +6,9 @@ class AdsController < ApplicationController
   def index
     @ads = Ad.all
   end
+  def all_ads
+    @ads = Ad.all
+  end
 
   # GET /ads/1
   # GET /ads/1.json

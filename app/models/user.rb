@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	belongs_to :privilege
 	has_many :appointments, dependent: :destroy, foreign_key: "member_id"
 	#ako je tutor
-	has_many :ads, dependent: :destroy, foreign_key: "tutor_id"
+	has_many :ads, foreign_key: "tutor_id"
 	has_many :tutoring_times, through: :ads
 	has_many :subjects, through: :ads
 	has_many :appointment_times, through: :appointments, class_name: "TutoringTime", dependent: :destroy

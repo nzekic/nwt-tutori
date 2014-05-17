@@ -27,7 +27,7 @@
         <td><%= ad.title %></td>
         <td><%= ad.description %></td>
         <td><%= ad.hourly_rate %></td>
-        <td><%= ad.is_valid %></td>
+        <td><%= ad.expired %></td>
         <td><%= link_to 'Show', ad %></td>
         <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
         <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
