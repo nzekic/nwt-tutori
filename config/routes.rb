@@ -3,6 +3,8 @@ OglasnikZaTutore::Application.routes.draw do
   resources :subjects
 
   resources :users
+  resources :ads
+
 scope "(:locale)", locale: /en|bs|hr|sr/ do
 
   root 'home#index'
@@ -26,7 +28,6 @@ scope "(:locale)", locale: /en|bs|hr|sr/ do
 
   resources :tutoring_times
 
-  resources :ads
 
   resources :research_areas
 
