@@ -1,7 +1,7 @@
 OglasnikZaTutore.controller ('HomeCtrl',  ['$scope', '$http',
 	function($scope, $http){
 		$http({
-    		url: 'http://localhost:3000/home/ads.json',
+    		url: 'http://tut.etf.ba/home/ads.json',
     		dataType: 'json',
     		method: 'GET',
     		data: '',
