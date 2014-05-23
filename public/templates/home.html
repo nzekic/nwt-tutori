@@ -9,7 +9,7 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-md-offset-1">
                     <h4>
                         Najnoviji oglasi
                     </h4>
@@ -17,7 +17,7 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 col-md-offset-1" >
                     <div class="panel panel-default" ng-repeat="ad in ads">
                         <div class="panel-heading"><div class="row"><div class="col-md-2"><img class="img-responsive img-circle" width="50" src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg" alt="..."></div> 
                         <div class="col-md-5"><label style="color:black"><h4><b> {{ad.title}}</b></h4></label></div></div>
@@ -25,13 +25,13 @@
                         </div>
                         <div class="panel-body">
                             <div class="text-left">
-                                <label style="color:black"> Tutor: </label>
+                                <label style="color:black"> Tutor: {{ad.tutor.name}}</label>
                                 <br>
-                                <label style="color:black"> Oblast: </label>
+                                <label style="color:black"> Oblast: {{ad.science_field.name}}</label>
                                 <br>
-                                <label style="color:black"> Predmet: {{ad.subject.name}}</label>
+                                <label style="color:black"> Predmet: <a href="/home#/subject/{{ad.subject_id}}">{{ad.subject.name}}</a></label>
                                 <br>
-                                <label style="color:black"> Lokacija:</label>
+                                <label style="color:black"> Lokacija:{{ad.tutor.location}}</label>
                                 <br>
                                 <label style="color:black"> Cijena po satu:{{ad.hourly_rate}}</label>
 

@@ -1,0 +1,29 @@
+        <div class="container" ng-controller="SubjectViewCtrl">  
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1">
+                    <div class="input-group input-group-lg">
+                    <h3>
+                        Predmet: {{subject.name}}
+                    </h3>
+                    <h4><p>Naučna oblast: {{subject.science_field.name}}</p></h3>
+                    <h4><p>Opis: {{subject.description}}</p></h3>
+
+                    <h4>Tutori na predmetu:</h4>
+                </div>
+            </div>
+        </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1" >
+                    <div class="panel panel-default" ng-repeat="tutor in tutors">
+                        <div class="panel-heading"><div class="row"><div class="col-md-2"><img class="img-responsive img-circle" width="50" src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg" alt="..."></div> 
+                        <div class="col-md-5"><label style="color:black"><h4><b><a href="/home#/tutor/{{tutor.id}}"> {{tutor.first_name}} &nbsp {{tutor.last_name}}</a></b></h4></label></div></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        <!-- /.container -->
+
+        </div>
+

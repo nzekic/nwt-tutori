@@ -1,12 +1,14 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :subject_view]
 
   # GET /subjects
   # GET /subjects.json
   def index
     @subjects = Subject.all
   end
-
+  def subject_view
+    @tutors = @subject.users
+  end
   # GET /subjects/1
   # GET /subjects/1.json
   def show

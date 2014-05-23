@@ -4,8 +4,8 @@ OglasnikZaTutore.config( ['$routeProvider',
     function($routeProvider) {
         $routeProvider
             .when('/home', {templateUrl: 'templates/home.html'})
-            .when('/', {templateUrl: 'templates/index.html'})
-            .when('/login', {templateUrl: 'templates/login.html'});
+            .when('/', {templateUrl: 'templates/home.html'})
+            .when('/subject/:id', {templateUrl: 'templates/subject-view.html'});
 
     }
 ]);

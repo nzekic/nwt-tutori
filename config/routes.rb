@@ -5,10 +5,10 @@ OglasnikZaTutore::Application.routes.draw do
   resources :users
   resources :ads
 
-scope "(:locale)", locale: /en|bs|hr|sr/ do
+scope "(:locale)", locale: /en|bs|hr|sr|/ do
 
   root 'home#index'
-  #get "home", to: 'home#home'
+  get "home", to: 'home#home'
   post "accounts/login"
   get "accounts/logout"
   post "accounts/register"
@@ -23,6 +23,11 @@ scope "(:locale)", locale: /en|bs|hr|sr/ do
   post "tutor_ads/create"
   get "dashboard/registered_users"
   get "home/ads", to:"ads#all_ads", :defaults => { :format => 'json' }
+  get "subjects/:id/subject_view", to:"subjects#subject_view", :defaults => { :format => 'json' }
+
+  resources :subjects
+  resources :users
+  resources :ads
   resources :dashboard, :only => [ :index, :registered_users ]
   resources :appointments
 
@@ -39,7 +44,6 @@ scope "(:locale)", locale: /en|bs|hr|sr/ do
 
   resources :signups, :only => [:index, :create]
   get 'signup' => 'signups#index'
-
   resources :accounts, :only => [:index, :register]
   get 'accounts' => 'accounts#index'
 
@@ -53,7 +57,6 @@ scope "(:locale)", locale: /en|bs|hr|sr/ do
   get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
   get '/fonts/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
-  get '/' => 'home#index'
 end
 
 end

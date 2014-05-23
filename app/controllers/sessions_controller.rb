@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 	def index
 		if @user
-			redirect_to '/'
+			redirect_to '/#/home'
 		end
 	end
 
@@ -12,11 +12,10 @@ class SessionsController < ApplicationController
 			if @user.privilege.name == 'Administrator'
 				redirect_to dashboard_index_path
 			else
-				redirect_to '/#/home'
+				redirect_to '/home#/home'
 			end
 		else
 			flash[:status] = false
-			flash[:message] = "Pogresno korisnicko ime ili lozinka"
 			redirect_to sessions_path
 		end
 	end

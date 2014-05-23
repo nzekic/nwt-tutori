@@ -1,0 +1,76 @@
+<div class="intro-header loginHead">
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="intro-message">
+                <% if flash[:status] == false %>
+                    <h1><%= flash[:alert] %></h1>
+                <% end %>
+                <%= form_tag signups_path(), :method => "POST", :class => 'form-horizontal col-lg-6', :id => 'create_signups_form' do %>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-md-3 control-label"><%=t "register.username" %></label>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control" id="username" placeholder="Korisničko ime" name="username" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-md-3 control-label"><%=t "register.firstName" %></label>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control" id="first_name" placeholder="Ime" name="first_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-md-3 control-label"><%=t "register.lastName" %></label>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control" id="last_name" placeholder="Prezime" name="last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-md-3 control-label"><%=t "register.password" %></label>
+                        <div class="col-md-9">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Lozinka" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-md-3 control-label"><%=t "register.confirmPassword" %></label>
+                        <div class="col-md-9">
+                          <input type="password" class="form-control" id="confirmation_password" name="confirmation_password" placeholder="Potvrđena lozinka" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <label for="inputEmail3" class="col-md-3 control-label"><%=t "register.userType" %>:</label>
+                    <div class="radio-inline">
+                            <input type="radio" name="privilege" id="optionsRadios1" value="2" checked>
+                                <%=t "register.tutor" %>
+                    </div>
+                    <div class="radio-inline">
+                            <input type="radio" name="privilege" id="optionsRadios2" value="3">
+                                 <%=t "register.member" %>  
+                    </div>
+                <%= raw recaptcha_tags %>
+
+                <br>
+                <br>
+
+                    <div class = "col-md-offset-4">
+                </div>
+
+                    <br>
+                    <div class="form-group form-inline">
+                        <div class="col-md-offset-4 col-md-8">
+                          <button type="submit" class="btn btn-danger"><%=t "register.register" %></button>&nbsp;
+                          <label style="color:white">Već si član? <a href="login"><%=t "session.login" %>!</a></label>
+                         </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
