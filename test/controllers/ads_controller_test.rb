@@ -18,7 +18,7 @@ class AdsControllerTest < ActionController::TestCase
 
   test "should create ad" do
     assert_difference('Ad.count') do
-      post :create, ad: { description: @ad.description, hourly_rate: @ad.hourly_rate, subject_id: @ad.subject_id, title: @ad.title, tutor_id: @ad.tutor_id, valid: @ad.valid }
+      post :create, ad: { description: @ad.description, hourly_rate: @ad.hourly_rate, subject_id: @ad.subject_id, title: @ad.title, tutor_id: @ad.tutor_id, expired: @ad.expired }
     end
 
     assert_redirected_to ad_path(assigns(:ad))
@@ -35,7 +35,7 @@ class AdsControllerTest < ActionController::TestCase
   end
 
   test "should update ad" do
-    patch :update, id: @ad, ad: { description: @ad.description, hourly_rate: @ad.hourly_rate, subject_id: @ad.subject_id, title: @ad.title, tutor_id: @ad.tutor_id, valid: @ad.valid }
+    patch :update, id: @ad, ad: { description: @ad.description, hourly_rate: @ad.hourly_rate, subject_id: @ad.subject_id, title: @ad.title, tutor_id: @ad.tutor_id, expired: @ad.expired }
     assert_redirected_to ad_path(assigns(:ad))
   end
 
