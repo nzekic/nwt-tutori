@@ -2,7 +2,7 @@ OglasnikZaTutore.controller ('SubjectViewCtrl',  ['$scope', '$routeParams', '$ht
 	function($scope, $routeParams, $http){
         var id = $routeParams.id
 		$http({
-    		url: 'http://tut.etf.ba/subjects/' + id + '/subject_view.json',
+    		url: 'http://localhost:3000/subjects/' + id + '/subject_view.json',
     		dataType: 'json',
     		method: 'GET',
     		data: '',

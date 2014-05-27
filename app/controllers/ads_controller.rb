@@ -10,6 +10,10 @@ class AdsController < ApplicationController
     @ads = Ad.all
   end
 
+   def ads_search
+    @ads = Ad.all
+  end
+
   # GET /ads/1
   # GET /ads/1.json
   def show
