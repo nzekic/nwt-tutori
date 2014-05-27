@@ -1,4 +1,52 @@
+<% if @user && @user.privilege_id==2 %>
 
+
+<div class="container">
+<h1>Pregled mojih ponuda</h1>
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Tutor</th>
+      <th>Subject</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Hourly rate</th>
+      <th>Valid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ads.each do |ad| %>
+    <% if ad.tutor_id = @user.id %>
+      <tr>
+        <td><%= ad.tutor_id %></td>
+        <td><%= ad.subject_id %></td>
+        <td><%= ad.title %></td>
+        <td><%= ad.description %></td>
+        <td><%= ad.hourly_rate %></td>
+        <td><%= ad.expired %></td>
+        <td><%= link_to 'Show', ad %></td>
+        <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+        <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'Dodaj ponudu', new_ad_path, :class => 'btn btn-primary btn-lg btn-block', :method=>'get'%>
+
+</div>
+
+<% else %>
 <h1>Listing ads</h1>
 <div class="container">
 <h1>Ponude</h1>
@@ -42,3 +90,5 @@
 <%= link_to 'Dodaj ponudu', new_ad_path, :class => 'btn btn-primary btn-lg btn-block', :method=>'get'%>
 
 </div>
+
+ <% end %>
