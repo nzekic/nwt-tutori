@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 	def index
 		if @user
-			redirect_to '/#/home'
+			redirect_to '/home#/home'
 		end
 	end
 
@@ -15,8 +15,6 @@ class SessionsController < ApplicationController
 				redirect_to '/home#/home'
 			end
 		else
-			flash[:status] = false
-			redirect_to sessions_path
 		end
 	end
 
