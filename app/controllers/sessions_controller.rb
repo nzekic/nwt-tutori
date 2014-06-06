@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
 				redirect_to '/home#/home'
 			end
 		else
+			flash[:status] = false
+			redirect_to sessions_path
 		end
 	end
 

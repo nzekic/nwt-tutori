@@ -1,8 +1,10 @@
-<div ng-view="ng-view">
-	<div class="intro-header loginHead">
+<div class="intro-header loginHead">
 	<div class="container">
 		<div class="col-lg-12">
 			<div class="intro-message">
+				<% if flash[:status] == false %>
+					<h1><%= flash[:alert] %></h1>
+				<% end %>
 				<%= form_tag sessions_path(), :method => "POST", :class => 'form-horizontal col-lg-6', :id => 'create_session_form' do %>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label"><%=t "session.username" %></label>
@@ -26,5 +28,4 @@
 			</div>
 		</div>
 	</div>
-</div>
 </div>

@@ -1,5 +1,6 @@
 OglasnikZaTutore::Application.routes.draw do
 
+  resources :sessions
   resources :subjects
 
   resources :users
