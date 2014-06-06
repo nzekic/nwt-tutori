@@ -22,7 +22,7 @@
 
   <tbody>
     <% @ads.each do |ad| %>
-    <% if ad.tutor_id = @user.id %>
+    <% if ad.tutor_id == @user.id %>
       <tr>
         <td><%= ad.tutor_id %></td>
         <td><%= ad.subject_id %></td>
