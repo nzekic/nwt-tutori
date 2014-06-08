@@ -58,7 +58,7 @@
 
                   <% if @user || session[:user_id] %>
                    
-                        <li><a href="profile"><%= @user.username %></a></li>
+                        <li><a href="/home#/user_profile/" + :user_id> <%= @user.username %></a></li>
                         <li><a href="logout"><%= t "nav.logout" %></a></li>
                      
                     </li>
@@ -79,7 +79,7 @@
 <div id="sidebar">
     <div class="col-md-12">
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a><%=t "nav.home" %></a></li>
+        <li><a><%=t "nav.home" %></a></li>
         <li><a href="/ads"><%=t "nav.ads" %></a></li>
         <li><a href="/subjects"><%=t "nav.subjects" %></a></li>
 

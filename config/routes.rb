@@ -25,6 +25,7 @@ scope "(:locale)", locale: /en|bs|hr|sr|/ do
   get "dashboard/registered_users"
   get "home/ads", to:"ads#all_ads", :defaults => { :format => 'json' }
   get "subjects/:id/subject_view", to:"subjects#subject_view", :defaults => { :format => 'json' }
+  get "profiles/:id/user_profile", to:"profiles#user_profile", :defaults => { :format => 'json' }
   get "ads/search/ads_search", to:"ads#ads_search", :defaults => { :format => 'json' }
 
   resources :subjects
