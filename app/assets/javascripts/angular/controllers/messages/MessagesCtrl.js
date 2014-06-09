@@ -1,4 +1,4 @@
-OglasnikZaTutore.controller ('MessageCtrl',  ['$scope', '$http', '$resource', '$routeParams',
+OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', '$http', '$resource', '$routeParams',
 	function($scope, $http, $resource, $routeParams){
         var id = $routeParams.id
         //$scope.sameUser=false;
