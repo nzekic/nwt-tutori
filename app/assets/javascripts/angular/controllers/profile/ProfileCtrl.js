@@ -2,7 +2,10 @@ OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
 	function($scope, $http, $routeParams){
         var id = $routeParams.id
         $scope.sameUser=false;
+        $scope.updateUser = function(){
+                var updatedUser = User.update($scope.user);
 
+        }
 		$http({
             url: 'http://localhost:3000/profiles/' + id + '/user_profile.json',
     		dataType: 'json',
@@ -14,8 +17,7 @@ OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
 
 		}).success(function(response){
     		$scope.user_profile = response;
-            var currentUser = $resource("http://localhost:3000/users/:id")
-            var user = currentUser.get({userId:2}, function() {
+
             if ($scope.user_profile.id == $scope.user_profile.current_user.id){
                 $scope.sameUser = true;
             }
