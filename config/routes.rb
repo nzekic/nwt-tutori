@@ -40,7 +40,7 @@ scope "(:locale)", locale: /en|bs|hr|sr|/ do
 
   resources :research_areas
 
-  resources :messages
+  resources :messages, :defaults
   get 'messages' => 'messages#messages'
 
   resources :privileges

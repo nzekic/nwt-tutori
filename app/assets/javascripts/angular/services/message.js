@@ -1,6 +1,6 @@
 OglasnikZaTutore.factory('Message', ['$resource', function($resource) {
   function Message() {
-    this.service = $resource('/messages/:message_id', {message_id: '@id'});
+    this.service = $resource('/messages');
   };
   Message.prototype.all = function() {
     return this.service.query();
