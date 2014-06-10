@@ -1,11 +1,10 @@
-OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
-	function($scope, $http, $routeParams){
-        var id = $routeParams.id
+OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User',
+	function($scope, $http, $routeParams, User, $location){
+        var id = $routeParams.id;
         $scope.sameUser=false;
-        $scope.updateUser = function(){
-                var updatedUser = User.update($scope.user);
-
-        }
+        $scope.updateUser = function () {
+            $location.path('/user-list');
+        };
 		$http({
             url: 'http://localhost:3000/profiles/' + id + '/user_profile.json',
     		dataType: 'json',
