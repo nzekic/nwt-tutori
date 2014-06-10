@@ -8,6 +8,13 @@
 <div class="container">
 
       <h3>Messages</h3>  
+<div ng-controller="MessagesCtrl">
+      <ul>
+    		<li ng-repeat="message in messages">
+      		{{message.content}}
+    		</li>
+  </ul>
+  </div>
 
 </div>
 

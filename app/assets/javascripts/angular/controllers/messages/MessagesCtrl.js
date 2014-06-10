@@ -1,5 +1,7 @@
-OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', '$http', '$resource', '$routeParams',
-	function($scope, $http, $resource, $routeParams){
+OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', '$http', '$resource', '$routeParams',
+	function($scope, Message, $http, $resource, $routeParams){
+        //var Messages = $resource('messages');
+        $scope.messages = Message.all();
         var id = $routeParams.id
         //$scope.sameUser=false;
 		$http({
@@ -12,7 +14,7 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', '$http', '$resource', '
     		}
 
 		}).success(function(response){
-            $scope.messages = response;
+            $scope.messages = Message.all();
 		}).error(function(error){
     		$scope.error = error;
 		});
