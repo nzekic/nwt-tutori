@@ -3,7 +3,7 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', '$http', '$resource', '
         var id = $routeParams.id
         //$scope.sameUser=false;
 		$http({
-            url: 'http://localhost:3000/messages/' + id + '/messages.json',
+            url: 'http://localhost:3000/messages/messages.json',
     		dataType: 'json',
     		method: 'GET',
     		data: '',
