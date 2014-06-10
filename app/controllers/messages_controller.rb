@@ -1,8 +1,10 @@
 class MessagesController < ApplicationController
 	respond_to :json
 
+
 	def show
-		@messages = Message.all
+		    @messages = Message.all
+
     end
 
    def index
