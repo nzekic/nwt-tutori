@@ -14,11 +14,14 @@ OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
 
 		}).success(function(response){
     		$scope.user_profile = response;
-            var currentUser = $resource("http://localhost:3000/users/:id")
-            var user = currentUser.get({userId:2}, function() {
+
+            //var currentUser = $resource("http://localhost:3000/users/:id")
+            //var user = currentUser.get({userId:2}, function() {
+
             if ($scope.user_profile.id == $scope.user_profile.current_user.id){
                 $scope.sameUser = true;
             }
+            
 		}).error(function(error){
     		$scope.error = error;
 		});

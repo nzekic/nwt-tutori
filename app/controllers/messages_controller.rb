@@ -2,6 +2,8 @@ class MessagesController < ApplicationController
 	respond_to :json
 
 	def show
+		    respond_with Message.all
+
     end
 
    def index
@@ -9,7 +11,7 @@ class MessagesController < ApplicationController
   end
 
 def messages
-		respond_with Message.all
+	respond_with Message.all
 end
     
 
