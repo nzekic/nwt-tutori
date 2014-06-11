@@ -53,7 +53,8 @@ class AccountsController < ApplicationController
           @user.update(:account_activated => true)
           render :json => 'Uspjesno ste aktivirali account'
         else
-          render :json => 'Pogresan aktivacijski kod'
+
+          render :json => @user.activation_code
         end
       end
   end

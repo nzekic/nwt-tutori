@@ -4,3 +4,8 @@ OglasnikZaTutore.factory('User', ['$resource', function($resource) {
 	    })
 
 }]);
+OglasnikZaTutore.factory('Users', ['$resource', function($resource) {
+	    return $resource('/signups', {}, {
+	        create: { method: 'POST' }
+	    })
+}]);

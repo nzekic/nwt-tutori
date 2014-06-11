@@ -2,7 +2,7 @@ OglasnikZaTutore::Application.routes.draw do
 
   resources :sessions
   resources :subjects
-
+  resources :signups
   resources :users
   resources :ads
 
