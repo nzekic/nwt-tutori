@@ -1,9 +1,10 @@
-OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', '$http', '$resource', '$routeParams',
-	function($scope, Message, $http, $resource, $routeParams){
-        //var Messages = $resource('messages');
-        $scope.messages = Message.all();
+OglasnikZaTutore.controller ('MessageViewCtrl',  ['$scope', 'Message', '$routeParams', '$http',
+	function($scope, Message, $routeParams, $http){
+        var id = $routeParams.id
+   $scope.newSubject = "TEST";
+   $scope.newSubject = Message.getOne(id).subject;
 
-        $scope.createMessage = function () {
+            $scope.createMessage = function () {
             var attr = {};
             attr.sender_id = 1;
             attr.receiver_id = $scope.newReceiver;
@@ -14,10 +15,8 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', '$http', '$r
     
         };
 
-        //var id = $routeParams.id;
-
 		$http({
-            url: 'http://localhost:3000/messages/messages.json',
+    		url: 'http://localhost:3000/messages/' + id + '/view_message.json',
     		dataType: 'json',
     		method: 'GET',
     		data: '',
@@ -26,7 +25,9 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', '$http', '$r
     		}
 
 		}).success(function(response){
-           // $scope.messages = Message.all();
+            $scope.message = response;
+           
+
 		}).error(function(error){
     		$scope.error = error;
 		});
