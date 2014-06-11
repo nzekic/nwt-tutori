@@ -1,24 +1,21 @@
-OglasnikZaTutore.controller ('LoginCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User',
-        var id = $routeParams.id;
-        $scope.sameUser=false;
+OglasnikZaTutore.controller('LoginCtrl', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService', '$location', 'Session',
+  function ($scope, $rootScope, AUTH_EVENTS, AuthService, $location, Session) {
+  $scope.credentials = {
+    username: '',
+    password: ''
+  };
+  $scope.login = function (credentials) {
+    AuthService.login(credentials).then(function () {
+      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+      if(Session.userRole==1||Session.userRole==2||Session.userRole==3){
+        $location.path("/home");
+      }
 
-		$http({
-            url: 'http://localhost:3000/profiles/' + id + '/user_profile.json',
-    		dataType: 'json',
-    		method: 'GET',
-    		data: '',
-    		headers: {
-        		"Content-Type": "application/json"
-    		}
 
-		}).success(function(response){
-    		$scope.user_profile = response;
-
-            if ($scope.user_profile.id == $scope.user_profile.current_user.id){
-                $scope.sameUser = true;
-            }
-		}).error(function(error){
-    		$scope.error = error;
-		});
-		}
-	]);
+    }, function () {
+      $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+      $location.path("/login")
+    });
+  };
+}
+]);

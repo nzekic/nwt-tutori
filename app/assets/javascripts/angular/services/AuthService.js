@@ -1,10 +1,11 @@
-.factory('AuthService', function ($http, Session) {
+OglasnikZaTutore.factory('AuthService', ['$http', 'Session', 
+  function ($http, Session) {
   return {
     login: function (credentials) {
       return $http
-        .post('/login', credentials)
+        .post('/sessions', credentials)
         .then(function (res) {
-          Session.create(res.id, res.userid, res.role);
+          Session.create(res.data.session_id, res.data.id, res.data.privilege_id);
         });
     },
     isAuthenticated: function () {
@@ -18,4 +19,5 @@
         authorizedRoles.indexOf(Session.userRole) !== -1);
     }
   };
-})
+}
+]);

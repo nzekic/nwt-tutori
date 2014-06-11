@@ -9,7 +9,7 @@ OglasnikZaTutore.constant('AUTH_EVENTS', {
 
 OglasnikZaTutore.constant('USER_ROLES', {
   all: '*',
-  admin: 'admin',
-  editor: 'editor',
-  guest: 'guest'
+  admin: 1,
+  tutor: 2,
+  member: 3
 })

@@ -5,6 +5,7 @@ OglasnikZaTutore.config( ['$routeProvider',
         $routeProvider
             .when('/home', {templateUrl: 'templates/home.html'})
             .when('/', {templateUrl: 'templates/home.html'})
+            .when('/login', {templateUrl: 'templates/login.html'})
             .when('/subject/:id', {templateUrl: 'templates/subject-view.html'})
             .when('/user_profile/:id', {templateUrl: 'templates/profile.html'})
             .when('/edit_profile/:id', {templateUrl: 'templates/edit_profile.html'})
