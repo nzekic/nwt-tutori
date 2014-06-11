@@ -6,10 +6,7 @@ OglasnikZaTutore.factory('Message', ['$resource', function($resource) {
   Message.prototype.all = function() {
     return this.service.query();
   };
-  Message.prototype.getOne = function(attr){
-return this.service.query(attr);
-
-  }
+ 
   Message.prototype.create = function(attr) {
 return this.service.save(attr)  
 }
