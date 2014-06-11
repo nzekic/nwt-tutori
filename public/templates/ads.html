@@ -1,0 +1,29 @@
+
+<div class="container" ng-controller="AdsCtrl">  
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+
+<div class="container">
+ <h3><a href="/home#/new_ad"> New Ad </a></h3>
+
+      <h4>Ads</h4>  
+     
+<div ng-controller="AdsCtrl">
+      <ul>
+    		<li ng-repeat="ad in ads" >
+
+      		<a href="/home#/ads/{{ad.id}}">{{ad.title}}</a>
+
+    		</li>
+  </ul>
+  </div>
+
+</div>
+
+
+
+
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

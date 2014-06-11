@@ -28,6 +28,7 @@ scope "(:locale)", locale: /en|bs|hr|sr|/ do
   get "profiles/:id/user_profile", to:"profiles#user_profile", :defaults => { :format => 'json' }
   get "messages", to:"messages#messages", :defaults => { :format => 'json' }
   get "messages/:id/view_message", to:"messages#view_message", :defaults => { :format => 'json' }
+  
 
   get "ads/search/ads_search", to:"ads#ads_search", :defaults => { :format => 'json' }
 
@@ -44,6 +45,9 @@ scope "(:locale)", locale: /en|bs|hr|sr|/ do
 
   resources :messages, :defaults
   get 'messages' => 'messages#messages'
+
+  resources :messages, :defaults
+  get 'ads' => 'ads#ads'
 
   resources :privileges
 

@@ -14,6 +14,8 @@ OglasnikZaTutore.config( ['$routeProvider',
             .when('/new_message', {templateUrl: 'templates/new_message.html'})
             .when('/messages/:id', {templateUrl: 'templates/view_message.html'})
             .when('/ads/search/ads_search', {templateUrl: 'templates/ads_search.html'});
+             .when('/new_ad', {templateUrl: 'templates/new_ad.html'})
+           
 
     }
 ]);

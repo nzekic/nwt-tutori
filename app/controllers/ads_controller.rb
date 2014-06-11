@@ -1,9 +1,13 @@
 class AdsController < ApplicationController
+  respond_to :json
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
 
   # GET /ads
   # GET /ads.json
   def index
+    @ads = Ad.all
+  end
+   def show
     @ads = Ad.all
   end
   def all_ads
@@ -14,10 +18,18 @@ class AdsController < ApplicationController
     @ads = Ad.all
   end
 
+   def create
+    respond_with Ad.create(ad_params)
+
+  end
   # GET /ads/1
   # GET /ads/1.json
-  def show
-  end
+  
+
+  def ads
+  @ads = Ad.all
+end
+
 
   # GET /ads/new
   def new
@@ -27,23 +39,26 @@ class AdsController < ApplicationController
   # GET /ads/1/edit
   def edit
   end
+    def view_ad
+    @ad = Ad.find(params[:id])
+  end
 
   # POST /ads
   # POST /ads.json
-  def create
-    @ad = Ad.new(ad_params)
+#  def create
+   # @ad = Ad.new(ad_params)
 
-   respond_to do |format|
-      if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @ad }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @ad.errors, status: :unprocessable_entity }
-      end
-    end
+#   respond_to do |format|
+ #     if @ad.save
+  #      format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+   #     format.json { render action: 'show', status: :created, location: @ad }
+    #  else
+     #   format.html { render action: 'new' }
+      #  format.json { render json: @ad.errors, status: :unprocessable_entity }
+      #end
+    #end
 
-  end
+ # end
 
   # PATCH/PUT /ads/1
   # PATCH/PUT /ads/1.json
