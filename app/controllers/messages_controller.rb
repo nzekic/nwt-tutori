@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 	respond_to :json
+	before_action :set_message, only: [:show, :edit, :update, :destroy, :view_message]
 
 
 	def show
@@ -9,7 +10,11 @@ class MessagesController < ApplicationController
 
      def create
     respond_with Message.create(message_params)
-  
+
+  end
+
+  def view_message
+    @message = Message.find(params[:id])
   end
 
    def index
@@ -21,6 +26,10 @@ def messages
 end
 
 private
+	def set_message
+      @message = Message.find(params[:id])
+    end
+    
     def message_params
       params.require(:message).permit(:sender_id, :receiver_id, :content, :subject)
     end

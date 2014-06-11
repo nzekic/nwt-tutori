@@ -6,14 +6,15 @@
 
 
 <div class="container">
+ <h3><a href="/home#/new_message"> New Message </a></h3>
 
-      <h3>Messages</h3>  
-      <h4><a href="/home#/new_message"> New Message </a></h4>
+      <h4>Messages</h4>  
+     
 <div ng-controller="MessagesCtrl">
       <ul>
     		<li ng-repeat="message in messages" >
 
-      		{{message.subject}}
+      		<a href="/home#/messages/{{message.id}}">{{message.subject}}</a>
 
     		</li>
   </ul>
