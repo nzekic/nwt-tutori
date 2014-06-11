@@ -7,6 +7,11 @@ class MessagesController < ApplicationController
 
     end
 
+     def create
+    respond_with Message.create(message_params)
+  
+  end
+
    def index
     @messages = Message.all
   end
@@ -14,6 +19,11 @@ class MessagesController < ApplicationController
 def messages
 	@messages = Message.all
 end
+
+private
+    def message_params
+      params.require(:message).permit(:sender_id, :receiver_id, :content, :subject)
+    end
     
 
 end

@@ -3,6 +3,17 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', '$http', '$r
         //var Messages = $resource('messages');
         $scope.messages = Message.all();
 
+        $scope.createMessage = function () {
+            var attr = {};
+            attr.sender_id = 1;
+            attr.receiver_id = $scope.newReceiver;
+            attr.content = $scope.newContent;
+            attr.subject = $scope.newSubject;
+            var newMessage = Message.create(attr);
+            $scope.messages.push(newMessage);
+    
+        };
+
         //var id = $routeParams.id;
 
 		$http({
