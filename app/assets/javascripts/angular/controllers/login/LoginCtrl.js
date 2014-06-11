@@ -1,11 +1,4 @@
-OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User',
-	function($scope, $http, $routeParams, $location, User){
-        $scope.currentUser = null;
-        $scope.userRoles = USER_ROLES;
-        $scope.isAuthorized = AuthService.isAuthorized;
-        $scope.updateUser = function (userID) {
-            User.update($scope.user_profile)
-        };
+OglasnikZaTutore.controller ('LoginCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User',
         var id = $routeParams.id;
         $scope.sameUser=false;
 

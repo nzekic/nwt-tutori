@@ -7,12 +7,11 @@
 
 <div class="container">
 
-
+<form ng-submit = "updateUser()">
         <div class="col-md-10">
                 <div class="panel">
                     <img class="pic img-circle" src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg" alt="...">
-                    <form ng-submit="updateUser()">
-                    <input type="text" name="name" value={{user_profile.name}} ng-model="user.name">
+                    <input type="text" name="name" ng-model="user_profile.name">
               
                   
                 </div>
@@ -20,9 +19,9 @@
     <br><br><br>
 
 
-      <input type="text" name="email" value={{user_profile.email}} ng-model="user.email">
+      <input type="text" name = "email" ng-model="user_profile.email">
 
-       <input type="text" name="location" value={{user_profile.location}}>
+       <input type="text" name="location" ng-model="user_profile.location">
 
       
 
@@ -35,7 +34,7 @@
       
       <div ng-show = "sameUser">
       <a ng-click="updateUser()" class="btn btn-md btn-primary" style="color:white" href = "/home#/edit_profile/{{user_profile.id}}">Uredi profil</a>
-
+</form>
       </div>
 
 
