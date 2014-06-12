@@ -1,11 +1,13 @@
-OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', 'Ad', 'Subjects', '$http', '$resource', '$routeParams',
-	function($scope, Ad, Subjects, $http, $resource, $routeParams){
+OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', 'Ad', 'Subjects','Session' ,'$http', '$resource', '$routeParams',
+	function($scope, Ad, Subjects, Session, $http, $resource, $routeParams){
         //var Messages = $resource('messages');
         $scope.ads = Ad.all();
         $scope.subjects = [];
+//$scope.id = Session.userId;
+
         $scope.createAd = function () {
             var attr = {};
-            attr.tutor_id = 1;
+            attr.tutor_id = Session.userId;
             attr.subject_id = 1;
             attr.title = $scope.newTitle;
             attr.description = $scope.newDescription;
