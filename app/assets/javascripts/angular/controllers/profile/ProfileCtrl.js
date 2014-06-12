@@ -2,20 +2,29 @@ OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
 	function($scope, $http, $routeParams, $location, User, Session){
         $scope.currentUser = Session.userId
         var id = $routeParams.id;
-        $scope.get_profile = function () {
-            User.get_user(id)              
-            .then(
-                function (data) {
-                    $scope.user_profile = data.data;
-
-                });
+        $scope.user_profile = {};
+        $scope.user_profile.id = $routeParams.id;
+        var get_profile = function(user_id){
+            User.get_user(user_id)
+                .success(
+                    function(data){
+                            $scope.user_profile = data;
+                    }
+                )
+                .error(
+                    function(data, status){
+                        console.log("error_proba");
+                    }
+                );
         };
-        $scope.get_profile();
+        get_profile($scope.user_profile.id);
         $scope.updateUser = function (userID) {
-            User.update($scope.user_profile)
+            User.update_user($scope.user_profile)
         };
         $scope.sameUser=false;
         if(id==$scope.currentUser)
-            sameUser = true;
+            $scope.sameUser = true;
+
 		}
+
 	]);

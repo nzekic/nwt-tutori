@@ -1,5 +1,5 @@
-OglasnikZaTutore.controller ('HomeCtrl',  ['$scope', '$http',
-	function($scope, $http){
+OglasnikZaTutore.controller ('HomeCtrl',  ['$scope', '$http', 'Session',
+	function($scope, $http, Session){
 		$http({
     		url: 'http://localhost:3000/home/ads.json',
     		dataType: 'json',

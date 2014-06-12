@@ -1,4 +1,4 @@
-OglasnikZaTutore.factory('User', ['$http', function($http) {
+OglasnikZaTutore.factory('User', ['$http', 'Session', function($http, Session) {
 	    return {
 	    	update_user:
 	    	    function(user){

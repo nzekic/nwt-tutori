@@ -19,5 +19,14 @@
 //= require angular-resource
 //= require angular-route
 //= require angular/controllers/home/HomeCtrl
+//= require angular/controllers/ads/AdsCtrl
+//= require angular/controllers/ads/AdViewCtrl
+//= require angular/controllers/login/LoginCtrl
+//= require angular/controllers/profile/ProfileCtrl
+//= require angular/controllers/subjects/SubjectViewCtrl
+//= require angular/controllers/registration/RegistrationCtrl
+//= require angular/services/session
+//= require angular/services/user
+//= require angular/services/login
 //= require chartkick
 //= require_tree .
