@@ -1,31 +1,21 @@
-OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User',
-	function($scope, $http, $routeParams, $location, User){
-        $scope.currentUser = null;
-        $scope.userRoles = USER_ROLES;
-        $scope.isAuthorized = AuthService.isAuthorized;
+OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User', 'Session', 
+	function($scope, $http, $routeParams, $location, User, Session){
+        $scope.currentUser = Session.userId
+        var id = $routeParams.id;
+        $scope.get_profile = function () {
+            User.get_user(id)              
+            .then(
+                function (data) {
+                    $scope.user_profile = data.data;
+
+                });
+        };
+        $scope.get_profile();
         $scope.updateUser = function (userID) {
             User.update($scope.user_profile)
         };
-        var id = $routeParams.id;
         $scope.sameUser=false;
-
-		$http({
-            url: 'http://localhost:3000/profiles/' + id + '/user_profile.json',
-    		dataType: 'json',
-    		method: 'GET',
-    		data: '',
-    		headers: {
-        		"Content-Type": "application/json"
-    		}
-
-		}).success(function(response){
-    		$scope.user_profile = response;
-
-            if ($scope.user_profile.id == $scope.user_profile.current_user.id){
-                $scope.sameUser = true;
-            }
-		}).error(function(error){
-    		$scope.error = error;
-		});
+        if(id==$scope.currentUser)
+            sameUser = true;
 		}
 	]);

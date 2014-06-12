@@ -3,8 +3,6 @@ OglasnikZaTutore.service('Session', function () {
     this.id = sessionId;
     this.userId = userId;
     this.userRole = userRole;
-            console.log(this.userRole);
-
   };
   this.destroy = function () {
     this.id = null;

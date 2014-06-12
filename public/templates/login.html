@@ -2,16 +2,16 @@
 	<div class="container">
 		<div class="col-lg-12">
 			<div class="intro-message">
-				<form ng-submit = "login(credentials)">
+				<form class = "form-horizontal col-lg-6" ng-submit = "login(credentials)">
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Username: </label>
-					    <div class="col-sm-10">
+						<label for="inputEmail3" class="col-md-3 control-label">Username: </label>
+					    <div class="col-md-9">
 					      <input type="text" class="form-control" id="username" placeholder="Korisničko ime" name="username" ng-model="credentials.username">
 					    </div>
 					</div>
 					<div class="form-group">
-					    <label for="inputPassword3" class="col-sm-2 control-label">Password: </label>
-					    <div class="col-sm-10">
+					    <label for="inputPassword3" class="col-md-3 control-label">Password: </label>
+					    <div class="col-md-9">
 					      <input type="password" class="form-control" id="password" name="password" placeholder="Lozinka" ng-model="credentials.password">
 					    </div>
 					</div>

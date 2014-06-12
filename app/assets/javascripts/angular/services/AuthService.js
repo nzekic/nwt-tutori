@@ -5,7 +5,7 @@ OglasnikZaTutore.factory('AuthService', ['$http', 'Session',
       return $http
         .post('/sessions', credentials)
         .then(function (res) {
-          Session.create(res.data.session_id, res.data.id, res.data.privilege_id);
+          Session.create(res.data.session_id, res.data.user_id, res.data.privilege_id);
         });
     },
     isAuthenticated: function () {

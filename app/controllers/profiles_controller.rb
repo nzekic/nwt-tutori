@@ -4,7 +4,7 @@ class ProfilesController < AuthController
 
 	end
 	def user_profile
-		
+		@user_profile = User.find(params[:id])
 	end
   private
     # Use callbacks to share common setup or constraints between actions.
