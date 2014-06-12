@@ -19,6 +19,7 @@ OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
         };
         get_profile($scope.user_profile.id);
         $scope.updateUser = function (userID) {
+            
             User.update_user($scope.user_profile)
         };
         $scope.sameUser=false;

@@ -1,8 +1,8 @@
-OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', 'Ad', '$http', '$resource', '$routeParams',
-	function($scope, Ad, $http, $resource, $routeParams){
+OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', 'Ad', 'Subjects', '$http', '$resource', '$routeParams',
+	function($scope, Ad, Subjects, $http, $resource, $routeParams){
         //var Messages = $resource('messages');
         $scope.ads = Ad.all();
-
+        $scope.subjects = [];
         $scope.createAd = function () {
             var attr = {};
             attr.tutor_id = 1;
@@ -15,22 +15,10 @@ OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', 'Ad', '$http', '$resource', 
             $scope.ads.push(newAd);
     
         };
-
+        var get_subjects = function(){
+            Subjects.get_all_subjects().success(function(data){$scope.subjects = data;});
+        };
+        get_subjects();
         //var id = $routeParams.id;
-
-		$http({
-            url: 'http://localhost:3000/ads/ads.json',
-    		dataType: 'json',
-    		method: 'GET',
-    		data: '',
-    		headers: {
-        		"Content-Type": "application/json"
-    		}
-
-		}).success(function(response){
-           // $scope.messages = Message.all();
-		}).error(function(error){
-    		$scope.error = error;
-		});
 		}
 	])
