@@ -1,11 +1,12 @@
-OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', '$http', '$resource', '$routeParams',
-	function($scope, Message, $http, $resource, $routeParams){
+OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', 'Session', '$http', '$resource', '$routeParams',
+	function($scope, Message, Session, $http, $resource, $routeParams){
         //var Messages = $resource('messages');
         $scope.messages = Message.all();
+        $scope.currenUser = Session.userId;
 
         $scope.createMessage = function () {
             var attr = {};
-            attr.sender_id = 1;
+            attr.sender_id = Session.userId;
             attr.receiver_id = $scope.newReceiver;
             attr.content = $scope.newContent;
             attr.subject = $scope.newSubject;

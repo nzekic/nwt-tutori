@@ -4,4 +4,5 @@ OglasnikZaTutore.controller('ApplicationCtrl', function ($scope,
   $scope.currentUser = null;
   $scope.userRoles = USER_ROLES;
   $scope.isAuthorized = AuthService.isAuthorized;
+  $scope.isAuthenticated = AuthService.isAuthenticated;
 })

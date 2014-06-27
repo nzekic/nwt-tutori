@@ -31,68 +31,9 @@
     <!-- JavaScript -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <nav class="navbar navbar-default " role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">NWT Tutori</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#about"><%= t "nav.about" %></a>
-                    </li>
-                    <li><a href="#services"><%= t "nav.services" %></a>
-                    </li>
-                    <li><a href="#contact"><%= t "nav.contacts" %></a>
-                    </li>
-                    </li>
-                    <li><a href="ads"><%= t "nav.ads" %></a>
-                    </li>
-                   
 
-                  <% if @user || session[:user_id] %>
-                   
-                        <li><a href="/home#/user_profile/" + :user_id> <%= @user.username %></a></li>
-                        <li><a href="logout"><%= t "nav.logout" %></a></li>
-                     
-                    </li>
-                  <% else %>
-                    <li><a href="/login"><%= t "nav.login" %></a>
-                    <li><a href="/signups"><%= t "nav.registration" %></a>
-                    </li>
-                  <% end %>
-                 
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-<div class="row">
-<% if @user || session[:user_id] %>
-<div id="sidebar">
-    <div class="col-md-12">
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="/home#/home"><%=t "nav.home" %></a></li>
-        <li><a href="/home#/new_ad"><%=t "New Ad" %></a></li>
-        <li><a href="/subjects"><%=t "nav.subjects" %></a></li>
-        <li><a href="/home#/messages"><%=t "nav.messages" %></a></li>
 
-      </ul>
-    </div>
-</div>
-<% end%>
-
-<div id="main">
     <%= yield %>
-</div>
-</div>
  <footer>
         <div class="container">
             <div class="row">

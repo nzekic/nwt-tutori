@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
 	def index
 		if @user
-			redirect_to '/home#/home'
+			redirect_to '/#/home'
 		end
 	end
 
