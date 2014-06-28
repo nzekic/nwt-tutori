@@ -12,30 +12,46 @@
 
 
 
-<form ng-submit="createAd()">
+<h2> New ad: </h2>
+
+<br>
+
+
+
+
+<form class = "form-horizontal col-lg-6" ng-submit="createAd()">
+
+
+ <div class="form-group">
+  <label class="col-md-3 control-label">Title: </label>
+    <div class="col-md-9">
+    <input type="text" class="form-control"  placeholder="Title" ng-model="newTitle">
+    </div>
+</div>
  
-       
-     Title <input type="text" ng-model="newTitle" >
-              
+   
                 
-               
-                
-    <br><br><br>
+ <div class="form-group">
+  <label class="col-md-3 control-label">Description: </label>
+    <div class="col-md-9">
+    <input type="text" class="form-control"  placeholder="Description" ng-model="newDescription">
+    </div>
+</div>
 
 
     
+ <div class="form-group">
+  <label class="col-md-3 control-label">Hourly rate: </label>
+    <div class="col-md-9">
+    <input type="text" class="form-control"  placeholder="Hourly Rate" ng-model="newHourlyRate">
+    </div>
+</div>
 
-      Description <input type="text" ng-model="newDescription">
-
-
-    <br><br><br>
-
-
-    
-
-      Hourly rate <input type="text" ng-model="newHourlyRate">
-       <br><br><br>
       <a ng-click="createAd()" class="btn btn-md btn-primary" style="color:white" href="/home#/new_ad">Post ad</a>
+
+
+<br><br>
+<div class= "alert alert-success" ng-show="success">Ad successfully uploaded!</div>
 </form>
  
 

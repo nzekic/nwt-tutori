@@ -6,12 +6,13 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', 'Session', '
 
         $scope.createMessage = function () {
             var attr = {};
-            attr.sender_id = Session.userId;
+            attr.sender_id = $cookieStore.get('currentUser').userId;
             attr.receiver_id = $scope.newReceiver;
             attr.content = $scope.newContent;
             attr.subject = $scope.newSubject;
             var newMessage = Message.create(attr);
             $scope.messages.push(newMessage);
+            $scope.success = true;
     
         };
 
@@ -28,6 +29,7 @@ OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', 'Session', '
 
 		}).success(function(response){
            // $scope.messages = Message.all();
+           $scope.success = true;
 		}).error(function(error){
     		$scope.error = error;
 		});
