@@ -1,5 +1,5 @@
-OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', 'Ad', 'Subjects','Session' ,'$http', '$resource', '$routeParams', '$cookieStore',
-	function($scope, Ad, Subjects, Session, $http, $resource, $routeParams, $cookieStore){
+OglasnikZaTutore.controller ('AdsCtrl',  ['$scope', '$cookieStore', 'Ad', 'Subjects','Session' ,'$http', '$resource', '$routeParams', '$cookieStore',
+	function($scope, $cookieStore,  Ad, Subjects, Session, $http, $resource, $routeParams, $cookieStore){
         //var Messages = $resource('messages');
         $scope.ads = Ad.all();
         $scope.subjects = [];

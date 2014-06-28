@@ -19,7 +19,7 @@
      
 <div ng-controller="MessagesCtrl">
       <ul>
-    		<li ng-repeat="message in messages" >
+    		<li ng-repeat="message in messages | filter: {receiver_id: currentUser}" >
 
       		<a href="/home#/messages/{{message.id}}">{{message.subject}}</a>
 

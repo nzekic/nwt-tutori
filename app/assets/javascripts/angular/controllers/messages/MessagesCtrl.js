@@ -1,8 +1,8 @@
-OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', 'Message', 'Session', '$http', '$resource', '$routeParams',
-	function($scope, Message, Session, $http, $resource, $routeParams){
+OglasnikZaTutore.controller ('MessagesCtrl',  ['$scope', '$cookieStore', 'Message', 'Session', '$http', '$resource', '$routeParams',
+	function($scope, $cookieStore, Message, Session, $http, $resource, $routeParams){
         //var Messages = $resource('messages');
         $scope.messages = Message.all();
-        $scope.currenUser = Session.userId;
+        $scope.currentUser = $cookieStore.get('currentUser').userId;
 
         $scope.createMessage = function () {
             var attr = {};
