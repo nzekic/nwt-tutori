@@ -20,7 +20,9 @@ OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams',
         get_profile($scope.user_profile.id);
         $scope.updateUser = function (userID) {
             
-            User.update_user($scope.user_profile)
+            User.update_user($scope.user_profile);
+            $scope.profileUpdatedSuccess = true;
+
         };
         $scope.sameUser=false;
         if(id==$scope.currentUser)

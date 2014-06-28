@@ -24,23 +24,36 @@
 
     <br><br><br>
 <div class="form-group">
-      <label class="col-md-3 control-label">Korisničko ime: </label><input type="text" name="name" ng-model="user_profile.username">
-      <label class="col-md-3 control-label">Email: </label><input type="text" name = "email" ng-model="user_profile.email">
-       <label class="col-md-3 control-label">Lokacija: </label><input type="text" name="location" ng-model="user_profile.location">
+      <label for="username" class="col-md-3 control-label">Korisničko ime: </label>
+      <div class="col-md-9">
+      <input type="text" name="username" ng-model="user_profile.username" class="form-control">
+    </div>
+  </div><br><br>
+    <div class="form-group">
+
+      <label for="email" class="col-md-3 control-label">Email: </label>
+                    <div class="col-md-9">
+<input type="text" name = "email" ng-model="user_profile.email" class="form-control">
 </div>
+</div><br><br>
+<div class="form-group">
+       <label for="location" class="col-md-3 control-label">Lokacija: </label>
+              <div class="col-md-9">
+
+       <input type="text" name="location" ng-model="user_profile.location" class="form-control">
+     </div>
+   </div>
+     <br>
       
 
-      <h3>Predmeti </h3>
-      <ul>
-      <li> Matematika </li>
-      <li> Fizika </li>
-      <li> Elektronika </li>
-      </ul>
-      
+<br><br><br>
+      <div class= "alert alert-success" ng-show="profileUpdatedSuccess">Profil je uspješno izmijenjen!</div>
       <div ng-show = "sameUser">
-      <a ng-click="updateUser()" class="btn btn-md btn-primary" style="color:white" href = "/home#/edit_profile/{{user_profile.id}}">Uredi profil</a>
-</form>
+      <button id="send" name="send" class="btn btn-primary btn-md pull-right" >
+      <a ng-click="updateUser()"  style="color:white" href = "/#/edit_profile/{{user_profile.id}}">Uredi profil</a></button
       </div>
+
+</form>
 
 
      
