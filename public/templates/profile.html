@@ -17,21 +17,20 @@
                 
     <br><br><br>
 
-
-      <h3>Lokacija <small>{{user_profile.location}}</small></h3>
-
-      
+      <h3>Username: <small>{{user_profile.username}}</small></h3>
+      <h3>Lokacija: <small>{{user_profile.location}}</small></h3>
+      <h3>E-mail: <small>{{user_profile.email}}</small></h3>
 
        <div class="tab-content">
       <div class="tab-pane active" id="clanovi">
 
-      <h3>Predmeti </h3>
+      <h3>Predmeti; </h3>
       <ul>
       <li ng-repeat = "subject in user_profile.subjects"> {{subject.name}} </li>
       </ul>
       
       <div ng-show = "sameUser">
-      <button id="send" name="send" class="btn btn-primary btn-md pull-right" ><a href = "/home#/edit_profile/{{user_profile.id}}" style="color:white">Uredi profil</button>
+      <button id="send" name="send" class="btn btn-primary btn-md pull-right" ><a href = "/#/edit_profile/{{user_profile.id}}" style="color:white">Uredi profil</a></button>
       </div>
 
 

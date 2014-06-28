@@ -1,6 +1,6 @@
-OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User', 'Session', 
-	function($scope, $http, $routeParams, $location, User, Session){
-        $scope.currentUser = Session.userId
+OglasnikZaTutore.controller ('ProfileCtrl',  ['$scope', '$http', '$routeParams', '$location', 'User', 'Session', '$cookieStore',
+	function($scope, $http, $routeParams, $location, User, Session, $cookieStore){
+        $scope.currentUser = $cookieStore.get('currentUser').userId;
         var id = $routeParams.id;
         $scope.user_profile = {};
         $scope.user_profile.id = $routeParams.id;

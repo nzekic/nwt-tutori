@@ -7,12 +7,14 @@ OglasnikZaTutore.factory('AuthService', ['$http', 'Session', '$location','$cooki
         .then(function (res) {
           Session.create(res.data.session_id, res.data.user_id, res.data.privilege_id, res.data.username);
           $cookieStore.put('loggedin', 'true')
+          $cookieStore.put('currentUser', Session);
 
         });
     },
     logout: function(){
       Session.destroy();
       $cookieStore.put('loggedin', '');
+      $cookieStore.put('currentUser', '');
       $location.path("/login");
     },
     isAuthenticated: function () {
