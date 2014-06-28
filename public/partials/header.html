@@ -22,10 +22,10 @@
                     <li><a href="/#/ads">Ads</a>
                     </li>
                                       
-                    <li ng-show = "isAuthenticated"><a href="/#/user_profile/" + :user_id>Username</a></li>
-                    <li ng-show="isAuthenticated"><a href="#/logout">Logout</a></li>                     
-                    <li ng-show="!isAuthenticated"><a href="#/login">Login</a></li>
-                    <li ng-show="!isAuthenticated"><a href="#/signups">Registration</a></li>
+                    <li ng-show="loggedIn"><a href="/#/user_profile/{{currentUser.userId}}">{{currentUser.username}}</a></li>
+                    <li ng-show="loggedIn"><a href="#/logout">Logout</a></li>                     
+                    <li ng-show="!loggedIn"><a href="#/login">Login</a></li>
+                    <li ng-show="!loggedIn"><a href="#/signups">Registration</a></li>
                  
                 </ul>
             </div>

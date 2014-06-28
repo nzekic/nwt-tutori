@@ -1,25 +1,25 @@
 <div id="navbar" ng-controller="HeaderCtrl">
   <div ng-include src="'partials/header.html'"></div>
 </div>
+<div class="row">
+  <div id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/sidebar.html'"></div>
+  </div>
+  <div id="main">
 <div class="container" ng-controller="ProfileCtrl">  
-
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-
-
-<div class="container">
 <form ng-submit = "updateUser()">
         <div class="col-md-10">
                 <div class="panel">
                     <img class="pic img-circle" src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg" alt="...">
-                    <div class="name"><small>{{user_profile.name}}</small></div>
+                    <div class="name"><small>{{user_profile.name}}&nbsp{{user_profile.family_name}}&nbsp({{user_profile.privilege.name}})</small></div>
                   
                 </div>
                 
     <br><br><br>
 
 
-      <h3>Fakultet <small>"Naziv fakulteta"</small></h3>
+      <h3>Lokacija <small>{{user_profile.location}}</small></h3>
+
       
 
        <div class="tab-content">
@@ -27,13 +27,11 @@
 
       <h3>Predmeti </h3>
       <ul>
-      <li> Matematika </li>
-      <li> Fizika </li>
-      <li> Elektronika </li>
+      <li ng-repeat = "subject in user_profile.subjects"> {{subject.name}} </li>
       </ul>
       
       <div ng-show = "sameUser">
-      <button id="send" name="send" class="btn btn-primary btn-md pull-right" ><a href = "/home#/edit_profile/{{user_profile.id}}">Uredi profil</button>
+      <button id="send" name="send" class="btn btn-primary btn-md pull-right" ><a href = "/home#/edit_profile/{{user_profile.id}}" style="color:white">Uredi profil</button>
       </div>
 
 
@@ -50,4 +48,6 @@
 
 
  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>
 </div>

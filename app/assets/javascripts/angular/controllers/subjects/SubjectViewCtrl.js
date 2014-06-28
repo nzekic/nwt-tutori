@@ -1,5 +1,5 @@
-OglasnikZaTutore.controller ('SubjectViewCtrl',  ['$scope', '$routeParams', '$http',
-	function($scope, $routeParams, $http){
+OglasnikZaTutore.controller ('SubjectViewCtrl',  ['$scope', '$routeParams', '$http', 'Session', 
+	function($scope, $routeParams, $http, Session){
         var id = $routeParams.id
 		$http({
     		url: 'http://localhost:3000/subjects/' + id + '/subject_view.json',

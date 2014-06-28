@@ -1,15 +1,18 @@
-OglasnikZaTutore.factory('AuthService', ['$http', 'Session', '$location',
-  function ($http, Session, $location) {
+OglasnikZaTutore.factory('AuthService', ['$http', 'Session', '$location','$cookieStore',
+  function ($http, Session, $location, $cookieStore) { 
   return {
     login: function (credentials) {
       return $http
         .post('/sessions', credentials)
         .then(function (res) {
-          Session.create(res.data.session_id, res.data.user_id, res.data.privilege_id);
+          Session.create(res.data.session_id, res.data.user_id, res.data.privilege_id, res.data.username);
+          $cookieStore.put('loggedin', 'true')
+
         });
     },
     logout: function(){
       Session.destroy();
+      $cookieStore.put('loggedin', '');
       $location.path("/login");
     },
     isAuthenticated: function () {
